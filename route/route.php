@@ -22,6 +22,7 @@ return function (RouteCollector $r) {
 
     $r->get('/tools', [ 'auth', 'ToolsController@html' ]);
 
+
     $r->post('/mailgun-messages', 'MailgunController@index');
 
 };
