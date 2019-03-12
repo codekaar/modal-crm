@@ -9,7 +9,7 @@
 
 <div>
     <p>Your ticket has been replied by <?= $this->e($repliedByName) ?> (<?= $this->e($repliedByEmail) ?>).</p>
-    <p><a href="<?= $this->e($ticketUrl) ?>">View ticket</a></p>
+    <p><a href="https://graphjs.com">Log in to view the ticket</a></p>
 </div>
 
 </body>
