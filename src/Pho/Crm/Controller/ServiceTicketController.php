@@ -157,9 +157,9 @@ class ServiceTicketController
         }
         Manager::connection()->commit();
 
-        if (! $isRepliedByCreator) {
+        //if (! $isRepliedByCreator) {
             $this->emailService->sendTicketReplied($ticket->uuid, $ticket->byUser->email, "{$currentUser->first_name} {$currentUser->last_name}", $currentUser->email, $text);
-        }
+        //}
 
         return new RedirectResponse(url("service-tickets/{$uuid}"));
     }
