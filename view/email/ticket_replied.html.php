@@ -8,8 +8,8 @@
 <body>
 
 <div>
-    <p>Your ticket has been replied by <?= $this->e($repliedByName) ?> (<?= $this->e($repliedByEmail) ?>).</p>
-    <p><a href="https://graphjs.com">Log in to view the ticket</a></p>
+    <p>Your ticket has been replied by Hai.</p>
+    <p>Log in to https://graphjs.com or https://grou.ps to view your tickets.</p>
 </div>
 
 </body>

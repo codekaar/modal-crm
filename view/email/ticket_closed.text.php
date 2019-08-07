@@ -1,3 +1,3 @@
 Your ticket has been closed.
 
-View ticket: <?= $ticketUrl ?>
+Log in to https://graphjs.com or https://grou.ps to view your tickets.

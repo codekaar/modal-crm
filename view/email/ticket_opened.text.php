@@ -1,3 +1,3 @@
 A ticket has been opened on your request.
 
-View ticket: <?= $ticketUrl ?>
+Log in to https://graphjs.com or https://grou.ps to view your tickets.
