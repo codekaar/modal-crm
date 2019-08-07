@@ -64,13 +64,14 @@ class EmailService
         ]);
     }
 
-    public function sendTicketReplied($ticketUuid, $creatorEmail, $repliedByName, $repliedByEmail)
+    public function sendTicketReplied($ticketUuid, $creatorEmail, $repliedByName, $repliedByEmail, $text)
     {
         $ticketUrl = url(sprintf('service-tickets/%s', $ticketUuid));
         $viewModel = [
             'repliedByName' => $repliedByName,
             'repliedByEmail' => $repliedByEmail,
             'ticketUrl' => $ticketUrl,
+            "replyItself"=>$text
         ];
         $this->email($creatorEmail, 'Ticket Created '.$ticketUuid, [
             'text' => view('email/ticket_replied.text.php', $viewModel),
