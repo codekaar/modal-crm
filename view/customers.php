@@ -155,7 +155,7 @@
         <button href="#" class="btn-email btn btn-link float-right"><span class="fas fa-envelope"></span></button>
         <a href="${baseUrl}/customers/${user.id}">${escapeHtml((user.email || ''))}</a>
     </td>
-    <td><a href="${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? '/'+user.instances[0].groups_name : '')}" target="_blank">${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? '/'+user.instances[0].groups_name : '')}</a></td>
+    <td><a href="${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}" target="_blank">${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}</a></td>
     <td>${user.service_conversations_count}</td>
     <td>${user.analytics_count}</td>
     <td>${user.access_tokens_count}</td>
