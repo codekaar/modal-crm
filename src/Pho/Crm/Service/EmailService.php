@@ -46,6 +46,9 @@ class EmailService
             'text' => $opts['text'],
             'html' => $opts['html'],
         ];
+        error_log("Logging email");
+        error_log($domain);
+        error_log(print_r($params, true));
         $this->mailgun->messages()->send($domain, $params);
     }
 
