@@ -15,6 +15,12 @@
                     Website: <?= $this->e($by->instances->first()->site->url) ?>
                 </div>
                 <div>
+                    Grou.ps Name: <?= $this->e($by->instances->first()->groups_name) ?>
+                </div>
+                <div>
+                    Grou.ps Title: <?= $this->e($by->instances->first()->groups_title) ?>
+                </div>
+                <div>
                     # of email conversation: <?= $by->service_conversations_count ?>
                 </div>
                 <div>
