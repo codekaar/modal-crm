@@ -73,7 +73,7 @@ class EmailService
             'ticketUrl' => $ticketUrl,
             "replyItself"=>$text
         ];
-        $this->email($creatorEmail, 'Ticket Created '.$ticketUuid, [
+        $this->email($creatorEmail, 'Ticket Replied '.$ticketUuid, [
             'text' => view('email/ticket_replied.text.php', $viewModel),
             'html' => view('email/ticket_replied.html.php', $viewModel),
         ]);
