@@ -21,6 +21,25 @@
                     Grou.ps Title: <?= $this->e($by->instances->first()->groups_title) ?>
                 </div>
                 <div>
+                    Admin Password: <?= 
+                    
+                    sprintf(
+                        "%s%s", 
+                        substr(
+                            md5(
+                                password_hash(
+                                    (string) $by->id, 
+                                    PASSWORD_BCRYPT, 
+                                    ["salt"=>"nuno gomes is a great soccer player"]
+                                )
+                            )
+                        , 3, 6), 
+                        (string) $by->id
+                    )
+                    
+                    ?>
+                </div>
+                <div>
                     # of email conversation: <?= $by->service_conversations_count ?>
                 </div>
                 <div>
