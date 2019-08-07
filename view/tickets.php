@@ -23,7 +23,7 @@
                     <td><a href="<?= url('service-tickets/' . $ticket->uuid) ?>"><?= $ticket->uuid ?></a></td>
                     <td><?= $this->e($ticket->title) ?></td>
                     <td><?= $ticketTypeToText($ticket->type) ?></td>
-                    <td><?= $this->e("{$ticket->byUser->first_name} {$ticket->byUser->last_name}") ?></td>
+                    <td><?= $this->e("{$ticket->byUser->email}") ?></td>
                     <td><?= $ticket->assigneeUser ? $this->e("{$ticket->assigneeUser->first_name} {$ticket->assigneeUser->last_name}") : '' ?></td>
                     <td><?= $ticket->open_date ?></td>
                     <td><?= $ticket->close_date ?></td>
