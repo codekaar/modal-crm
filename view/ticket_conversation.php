@@ -32,6 +32,7 @@
                 <div>Ticket ID: <?= $ticket->uuid ?></div>
                 <div>Title: <?= $this->e($ticket->title) ?></div>
                 <div>Type: <?= $ticketTypeToText($ticket->type) ?></div>
+                <div>By: <?= $ticket->byUser ? $this->e("{$ticket->byUser->email}") : '<i>Not Available</i>' ?></div>
                 <div>Assigned To: <?= $ticket->assigneeUser ? $this->e("{$ticket->assigneeUser->first_name} {$ticket->assigneeUser->last_name}") : '<i>Not Assigned</i>' ?></div>
                 <div>Status: <?= $ticketStatusToText($ticket->status) ?></div>
             </div>
