@@ -92,6 +92,7 @@
         loadData({ append: false, page: 1 });
     });
 
+<<<<<<< HEAD:view/customers.php
     $('.sort-header').each(function () {
         var $header = $(this);
         var sortKey = $header.data('sort');
@@ -118,12 +119,15 @@
         });
     });
 
+=======
+>>>>>>> 9bce4991343637e2034808fc041aec60e695c846:view/leads.php
     function loadData({ append = true, page = null } = {}) {
 
         var search = $search.val();
 
         currentPage = page ? page : currentPage;
 
+<<<<<<< HEAD:view/customers.php
         var sort = {};
         if (sortBy['email_count']) {
             sort.email_count = sortBy['email_count'];
@@ -135,6 +139,8 @@
             sort.analytics_count = sortBy['analytics_count'];
         }
 
+=======
+>>>>>>> 9bce4991343637e2034808fc041aec60e695c846:view/leads.php
         var queryParams = {
             type: customerType,
             search: search,
@@ -155,7 +161,11 @@
         <button href="#" class="btn-email btn btn-link float-right"><span class="fas fa-envelope"></span></button>
         <a href="${baseUrl}/customers/${user.id}">${escapeHtml((user.first_name || '') + (user.last_name || ''))}</a>
     </td>
+<<<<<<< HEAD:view/customers.php
     <td><a href="${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}" target="_blank">${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}</a></td>
+=======
+    <td>${(user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : ''}</td>
+>>>>>>> 9bce4991343637e2034808fc041aec60e695c846:view/leads.php
     <td>${user.service_conversations_count}</td>
     <td>${user.analytics_count}</td>
     <td>${user.access_tokens_count}</td>
