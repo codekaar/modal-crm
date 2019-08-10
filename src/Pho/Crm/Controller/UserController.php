@@ -177,7 +177,7 @@ SQL;
         else {
             $selectQuery = join("\n", [
                 $selectQuery,
-                "ORDER BY `instances`.`id`"
+                "ORDER BY `instances`.`id` DESC"
             ]);
         }
 
