@@ -178,6 +178,7 @@ SQL;
         $selectQuery .= "\nLIMIT $limit OFFSET $offset";
 
         // getting users
+        error_log("select query is: ".$selectQuery);
         $stmt = $pdo->prepare($selectQuery);
         if (! $stmt->execute($whereBindings)) {
             throw new \Exception(print_r($pdo->errorInfo(), true));
