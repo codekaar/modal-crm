@@ -5,7 +5,7 @@ include '../bootstrap.php';
 $to = $_REQUEST["to"];
 $title = $_REQUEST["subject"];
 $plaintext = wordwrap($_REQUEST["content"], 70);
-$plaintext .= "\n\n--\nHai\nResearch in Social Graph\nmakers of Grou.ps and Graph.js";
+$plaintext .= "\n\n--\nEmre\nResearch in Social Graph\nmakers of Grou.ps and Graph.js";
 
 
 use Mailgun\Mailgun;
