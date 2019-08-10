@@ -27,7 +27,7 @@ class UserController
     public function customersAjax(ServerRequestInterface $request, \PDO $pdo)
     {
         $defaultPage = 1;
-        $defaultLimit = 20;
+        $defaultLimit = 50;
 
         $queryParams = $request->getQueryParams();
 
@@ -172,6 +172,12 @@ SQL;
                     list($orderByField, $orderByType) = $orderByItem;
                     return "`$orderByField` $orderByType";
                 }, $orderBy)),
+            ]);
+        }
+        else {
+            $selectQuery = join("\n", [
+                $selectQuery,
+                "ORDER BY `instances`.`id`"
             ]);
         }
 
