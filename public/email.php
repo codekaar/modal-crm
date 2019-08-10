@@ -13,7 +13,7 @@ use Mailgun\Mailgun;
 $mg = Mailgun::create(getenv("MAILGUN_KEY")); 
 
 $mg->messages()->send(getenv("MAILGUN_DOMAIN"), [
-    'from'    => getenv("MAIL_FROM_NAME")." <".getenv("MAIL_FROM_ADDRESS").">", 
+    'from'    => "Emre <emre@risg.co>", 
     'to'      => $to, 
     'subject' => $title, 
     'text'    => $plaintext
