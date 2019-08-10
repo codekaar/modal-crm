@@ -51,19 +51,20 @@
             </div>
             <div class="modal-body">
                 <form>
+                    <input type="hidden" id="to-email" />
                     <div class="form-group">
                         <label class="col-form-label">Title</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="email-subject">
                     </div>
                     <div class="form-group">
                         <label class="col-form-label">Content</label>
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control"  id="email-content"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send</button>
+                <button type="button" class="btn btn-primary" id="email-button">Send</button>
             </div>
         </div>
     </div>
@@ -80,6 +81,7 @@
     var baseUrl = <?= json_encode(url()) ?>;
     var $search = $('#search');
     var $form = $('#form');
+    var $emailButton = $("#email-button")
     var currentPage = 1;
     var lastPage = null;
     var sortBy = {
@@ -87,6 +89,22 @@
         login_count: null,
         analytics_count: null,
     };
+
+    $emailButton.on("click", function(ev) {
+        // to-email
+        // email-subject
+        // email-content
+        $.post( "/email.php", { 
+                to: $("#to-email").val(), 
+                subject: $("#email-subject").val(),
+                content: $("#email-content").val()
+            }
+        )    
+        .done(function( data ) {
+            alert("should be done");
+        });
+    });
+
     $form.submit(function (ev) {
         ev.preventDefault();
         loadData({ append: false, page: 1 });
@@ -152,7 +170,7 @@
                 var $tr = $(`
 <tr>
     <td>
-        <button href="#" class="btn-email btn btn-link float-right"><span class="fas fa-envelope"></span></button>
+        <button href="#" class="btn-email btn btn-link float-right" data-email="${user.email}"><span class="fas fa-envelope"></span></button>
         <a href="${baseUrl}/customers/${user.id}">${escapeHtml((user.email || ''))}</a>
     </td>
     <td><a href="${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}" target="_blank">${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}</a></td>
@@ -164,6 +182,7 @@
                 $tr.find('.btn-email').on('click', function (ev) {
                     ev.preventDefault();
                     $('#email-modal').modal();
+                    $('#to-email').val($( this ).attr('data-email'))
                 });
                 return $tr;
             });
