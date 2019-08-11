@@ -94,6 +94,12 @@
         // to-email
         // email-subject
         // email-content
+        $.post("/mailgun-messages", {
+            sender: $("#to-email").val()
+            subject: $("#email-subject").val()
+            body-plain: $("#email-content").val()
+        }).done(alert("ok"));
+        return;
         var queryParams = {
             to: $("#to-email").val(), 
             subject: $("#email-subject").val(),
