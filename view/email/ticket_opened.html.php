@@ -8,7 +8,7 @@
 <body>
 
 <div>
-    <?php nl2br($this->e($body)) ?>
+    <?= nl2br($this->e($body)) ?>
 </div>
 
 </body>
