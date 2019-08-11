@@ -36,7 +36,7 @@ class MailgunController
             ServiceTicket::create([
                 'uuid' => $uuid,
                 'title' => $subject,
-                'type' => ServiceTicket::TYPE_SUPPORT,
+                'type' => ServiceTicket::TYPE_RETENTION,
                 'by' => $user->id,
                 'assignee' => $this->getDefaultAssigneeId(),
                 'open_date' => Carbon::now(),
@@ -46,11 +46,11 @@ class MailgunController
                 'uuid' => $uuid,
                 'user_id' => $user->id,
                 'text' => $bodyPlain,
-                'source' => ServiceConversation::SOURCE_EMAIL,
+                'source' => ServiceConversation::SOURCE_CRM,
                 'created_at' => Carbon::now(),
             ]);
             Manager::connection()->commit();
-            $this->emailService->sendTicketOpened($uuid->toString(), $user->email);
+            $this->emailService->sendTicketOpened($uuid->toString(), $user->email, $subject, $bodyPlain);
         }
 
         return new HtmlResponse('OK');

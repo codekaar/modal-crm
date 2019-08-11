@@ -52,13 +52,17 @@ class EmailService
         $this->mailgun->messages()->send($domain, $params);
     }
 
-    public function sendTicketOpened($ticketUuid, $creatorEmail)
+    public function sendTicketOpened($ticketUuid, $creatorEmail, $subject, $contents)
     {
         $ticketUrl = url(sprintf('service-tickets/%s', $ticketUuid));
+        $contents .= "\n\n--\Hai\nResearch in Social Graph\nmakers of Grou.ps and Graph.js";
+        $contents = wordwrap($contents, 70);
         $viewModel = [
             'ticketUrl' => $ticketUrl,
+            'body' => $contents
         ];
-        $this->email($creatorEmail, 'Ticket Opened '.$ticketUuid, [
+        $this->email($creatorEmail, $subject, [
+            'h:Reply-To' => "hai@risg.co",
             'text' => view('email/ticket_opened.text.php', $viewModel),
             'html' => view('email/ticket_opened.html.php', $viewModel),
         ]);

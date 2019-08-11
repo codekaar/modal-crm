@@ -8,6 +8,7 @@ class ServiceConversation extends Model
 {
     const SOURCE_EMAIL = 1;
     const SOURCE_WEBSITE = 2;
+    const SOURCE_CRM = 3;
 
     protected $table = 'service-conversations';
 

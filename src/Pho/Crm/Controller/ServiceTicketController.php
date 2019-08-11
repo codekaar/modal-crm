@@ -51,47 +51,6 @@ class ServiceTicketController
             );
     }
 
-    public function create(ServerRequestInterface $request, \PDO $pdo)
-    {
-        // $to, $subject, $content
-        $queryParams = $request->getQueryParams();
-
-        $to = $queryParams['to'];
-        $subject = $queryParams['subject'];
-        $content = $queryParams['content'];
-
-        error_log("Params are: ".$to." - ".$subject. " - ". $content);
-
-        $user = $this->auth->getUser();
-        $uuid = self::genuuid();
-        $by = User::query()->where("email", $to)->get();
-
-        error_log("By: ".$by->id);
-
-        $ticket = new ServiceTicket;
-        $ticket->uuid = $uuid;
-        $ticket->title = "[ admin initiated ]";
-        $ticket->type = ServiceTicket::TYPE_RETENTION; // not 1
-        $ticket->by = $by->id;
-        $ticket->assignee =  $user->id;
-        $ticket->open_date = DB::raw("NOW()");
-        $ticket->status = 0;
-        error_log("about to save the ticket");
-        $ticket->save();
-
-        $convo = new ServiceConversation;
-        $convo->uuid = $uuid;
-        $convo->user_id = $user->id;
-        $convo->text = $subject."\n\n".$content;
-        //$convo->source = ;
-        $convo->created_at = DB::raw("NOW()");
-        error_log("about to save the convo");
-        $convo->save();
-
-        return json_encode(["success"=>true]);
-
-    }
-
     public function ticketList()
     {
         $user = $this->auth->getUser();
