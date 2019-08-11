@@ -50,7 +50,7 @@ class ServiceTicketController
             );
     }
 
-    public function create(ServerRequestInterface $request, \PDO $pdo)
+    public function create()
     {
         // $to, $subject, $content
         $queryParams = $request->getQueryParams();
