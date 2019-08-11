@@ -94,24 +94,17 @@
         // to-email
         // email-subject
         // email-content
-        $.post( "/email.php", { 
-                to: $("#to-email").val(), 
-                subject: $("#email-subject").val(),
-                content: $("#email-content").val()
-            }
-        )    
-        .done(function( data ) {
-            console.log("first part ok");
-            $.post("/ajax/service-tickets", {
-                to: $("#to-email").val(), 
-                subject: $("#email-subject").val(),
-                content: $("#email-content").val()
-            })
-            .done(function(data) {
-                console.log("second part ok");
-                alert("should be done");
+        var queryParams = {
+            to: $("#to-email").val(), 
+            subject: $("#email-subject").val(),
+            content: $("#email-content").val()
+        };
+        $.post( "/email.php", queryParams)    
+            .done(function( data ) {
+                console.log("first part ok");
+                $.get(<?= json_encode(url('ajax/service-tickets')) ?> + '?' + $.param(queryParams))
+                    .done(function (res) { console.log("second part ok"); alert("should be done"); });
             });
-        });
     });
 
     $form.submit(function (ev) {
