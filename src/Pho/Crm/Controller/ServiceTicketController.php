@@ -62,7 +62,7 @@ class ServiceTicketController
 
         $user = $this->auth->getUser();
         $uuid = self::genuuid();
-        $by = User::query()->where("email", $to);
+        $by = User::query()->where("email", $to)->get();
 
         $ticket = new ServiceTicket;
         $ticket->uuid = $uuid;
