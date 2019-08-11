@@ -60,9 +60,13 @@ class ServiceTicketController
         $subject = $queryParams['subject'];
         $content = $queryParams['content'];
 
+        error_log("Params are: ".$to." - ".$subject. " - ". $content);
+
         $user = $this->auth->getUser();
         $uuid = self::genuuid();
         $by = User::query()->where("email", $to)->get();
+
+        error_log("By: ".$by->id);
 
         $ticket = new ServiceTicket;
         $ticket->uuid = $uuid;
@@ -72,6 +76,7 @@ class ServiceTicketController
         $ticket->assignee =  $user->id;
         $ticket->open_date = DB::raw("NOW()");
         $ticket->status = 0;
+        error_log("about to save the ticket");
         $ticket->save();
 
         $convo = new ServiceConversation;
@@ -80,6 +85,7 @@ class ServiceTicketController
         $convo->text = $subject."\n\n".$content;
         //$convo->source = ;
         $convo->created_at = DB::raw("NOW()");
+        error_log("about to save the convo");
         $convo->save();
 
         return json_encode(["success"=>true]);
