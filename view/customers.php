@@ -91,26 +91,11 @@
     };
 
     $emailButton.on("click", function(ev) {
-        // to-email
-        // email-subject
-        // email-content
         $.post("/mailgun-messages", {
             "sender": $("#to-email").val(),
             "subject": $("#email-subject").val(),
             "body-plain": $("#email-content").val()
-        }).done(alert("ok"));
-        return;
-        var queryParams = {
-            to: $("#to-email").val(), 
-            subject: $("#email-subject").val(),
-            content: $("#email-content").val()
-        };
-        $.post( "/email.php", queryParams)    
-            .done(function( data ) {
-                console.log("first part ok");
-                $.get(<?= json_encode(url('ajax/service-tickets')) ?> + '?' + $.param(queryParams))
-                    .done(function (res) { console.log("second part ok"); alert("should be done"); });
-            });
+        }).done(alert("Sent"));
     });
 
     $form.submit(function (ev) {
