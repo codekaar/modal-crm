@@ -101,7 +101,16 @@
             }
         )    
         .done(function( data ) {
-            alert("should be done");
+            console.log("first part ok");
+            $.post("/ajax/service-tickets", {
+                to: $("#to-email").val(), 
+                subject: $("#email-subject").val(),
+                content: $("#email-content").val()
+            })
+            .done(function(data) {
+                console.log("second part ok");
+                alert("should be done");
+            });
         });
     });
 

@@ -13,6 +13,7 @@ class ServiceTicket extends Model
     public $timestamps = false;
 
     const TYPE_SUPPORT = 1;
+    const TYPE_RETENTION = 2;
 
     const STATUS_OPEN = 1;
     const STATUS_WAITING_RESPONSE = 2;

@@ -26,6 +26,65 @@ class ServiceTicketController
         $this->emailService = $emailService;
     }
 
+    # https://stackoverflow.com/questions/2040240/php-function-to-generate-v4-uuid
+    public static function genuuid()
+    {
+            return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+                // 32 bits for "time_low"
+                mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
+        
+                // 16 bits for "time_mid"
+                mt_rand( 0, 0xffff ),
+        
+                // 16 bits for "time_hi_and_version",
+                // four most significant bits holds version number 4
+                mt_rand( 0, 0x0fff ) | 0x4000,
+        
+                // 16 bits, 8 bits for "clk_seq_hi_res",
+                // 8 bits for "clk_seq_low",
+                // two most significant bits holds zero and one for variant DCE1.1
+                mt_rand( 0, 0x3fff ) | 0x8000,
+        
+                // 48 bits for "node"
+                mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
+            );
+    }
+
+    public function create(ServerRequestInterface $request, \PDO $pdo)
+    {
+        // $to, $subject, $content
+        $queryParams = $request->getQueryParams();
+
+        $to = $queryParams['to'];
+        $subject = $queryParams['subject'];
+        $content = $queryParams['content'];
+
+        $user = $this->auth->getUser();
+        $uuid = self::genuuid();
+        $by = User::query()->where("email", $to);
+
+        $ticket = new ServiceTicket;
+        $ticket->uuid = $uuid;
+        $ticket->title = "[ admin initiated ]";
+        $ticket->type = ServiceTicket::TYPE_RETENTION; // not 1
+        $ticket->by = $by->id;
+        $ticket->assignee =  $user->id;
+        $ticket->open_date = DB::raw("NOW()");
+        $ticket->status = 0;
+        $ticket->save();
+
+        $convo = new ServiceConversation;
+        $convo->uuid = $uuid;
+        $convo->user_id = $user->id;
+        $convo->text = $subject."\n\n".$content;
+        //$convo->source = ;
+        $convo->created_at = DB::raw("NOW()");
+        $convo->save();
+
+        return json_encode(["success"=>true]);
+
+    }
+
     public function ticketList()
     {
         $user = $this->auth->getUser();
