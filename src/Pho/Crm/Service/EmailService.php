@@ -55,7 +55,7 @@ class EmailService
     public function sendTicketOpened($ticketUuid, $creatorEmail, $subject, $contents)
     {
         $ticketUrl = url(sprintf('service-tickets/%s', $ticketUuid));
-        $contents .= "\n\n--\Hai\nResearch in Social Graph\nmakers of Grou.ps and Graph.js";
+        $contents .= "\n\n--\nHai\nResearch in Social Graph\nmakers of Grou.ps and Graph.js";
         $contents = wordwrap($contents, 70);
         $viewModel = [
             'ticketUrl' => $ticketUrl,
