@@ -62,6 +62,7 @@ class EmailService
             'body' => $contents
         ];
         $this->email($creatorEmail, $subject, [
+            'from' => 'hai@gr.ps',
             'h:Reply-To' => "hai@risg.co",
             'text' => view('email/ticket_opened.text.php', $viewModel),
             'html' => view('email/ticket_opened.html.php', $viewModel),
