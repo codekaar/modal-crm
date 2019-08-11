@@ -14,6 +14,7 @@ use Rakit\Validation\Validator;
 use Teapot\StatusCode;
 use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Diactoros\Response\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 
 class ServiceTicketController
 {
