@@ -2,11 +2,12 @@
 
 <div class="container">
     <h1>Cluster Situation</h1>
-    <table>
+    
+    <table width="100%">
 
     <tr>
-    <td><b>Server</b></td>
-    <td><b># of Instances</b></td>
+    <td width="40%"><b>Server</b></td>
+    <td width="60%"><b># of Instances</b></td>
     </tr>
 
     <?php foreach ($instance_usage as $i): ?>
