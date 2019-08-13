@@ -34,6 +34,7 @@
         "monolog/monolog": "^1.24",
         "league/plates": "^3.3",
         "mailgun/mailgun-php": "^2.8",
-        "php-http/guzzle6-adapter": "^1.1"
+        "php-http/guzzle6-adapter": "^1.1",
+        "sergeytsalkov/meekrodb": "^2.3"
     }
 }

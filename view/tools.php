@@ -1,6 +1,50 @@
 <?php $this->layout('layout/main.php', [ 'title' => 'Service Tickets' ]) ?>
 
 <div class="container">
+    <h1>Cluster Situation</h1>
+    <table>
+
+    <tr>
+    <td><b>Server</b></td>
+    <td><b># of Instances</b></td>
+    <td><b>Props</b></td>
+    </tr>
+
+    <tr>
+    <td>accounts-1.graphjs.com</td>
+    <td><?= $instance_usage['accounts-1.graphjs.com'] ?></td>
+    <td>House accounts only</td>
+    </tr>
+
+    <tr>
+    <td>accounts-2.graphjs.com</td>
+    <td><?= $instance_usage['accounts-2.graphjs.com'] ?></td>
+    <td></td>
+    </tr>
+
+    <tr>
+    <td>accounts-3.graphjs.com</td>
+    <td> <?= $instance_usage['accounts-3.graphjs.com'] ?> </td>
+    <td></td>
+    </tr>
+
+
+    <tr>
+    <td>accounts-1.groups2.com</td>
+    <td> <?= $instance_usage['accounts-1.groups2.com'] ?> </td>
+    <td></td>
+    </tr>
+
+
+    <tr>
+    <td>accounts-2.groups2.com</td>
+    <td> <?= $instance_usage['accounts-2.graphjs.com'] ?> </td>
+    <td></td>
+    </tr>
+
+
+    </table>
+
     <h1>Tools</h1>
 
     <div>
