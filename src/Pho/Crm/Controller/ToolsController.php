@@ -39,6 +39,7 @@ class ToolsController
         \DB::$host = config('database.host');
 
         $instance_usage = \DB::queryRaw("SELECT count(*) as `num`, `server` FROM instances group by `server`");
+        error_log(print_r($instance_usage, true));
         //echo "Joe's password is: " . $joePassword . "\n";
         
 
