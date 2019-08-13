@@ -7,41 +7,16 @@
     <tr>
     <td><b>Server</b></td>
     <td><b># of Instances</b></td>
-    <td><b>Props</b></td>
     </tr>
+
+    <?php foreach ($instance_usage as $i): ?>
 
     <tr>
-    <td>accounts-1.graphjs.com</td>
-    <td><?= $instance_usage['accounts-1.graphjs.com'] ?></td>
-    <td>House accounts only</td>
+    <td><?= $i['server'] ?></td>
+    <td><?= $i['num'] ?></td>
     </tr>
 
-    <tr>
-    <td>accounts-2.graphjs.com</td>
-    <td><?= $instance_usage['accounts-2.graphjs.com'] ?></td>
-    <td></td>
-    </tr>
-
-    <tr>
-    <td>accounts-3.graphjs.com</td>
-    <td> <?= $instance_usage['accounts-3.graphjs.com'] ?> </td>
-    <td></td>
-    </tr>
-
-
-    <tr>
-    <td>accounts-1.groups2.com</td>
-    <td> <?= $instance_usage['accounts-1.groups2.com'] ?> </td>
-    <td></td>
-    </tr>
-
-
-    <tr>
-    <td>accounts-2.groups2.com</td>
-    <td> <?= $instance_usage['accounts-2.graphjs.com'] ?> </td>
-    <td></td>
-    </tr>
-
+    <?php endforeach ?>
 
     </table>
 
