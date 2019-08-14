@@ -54,7 +54,7 @@
                         "host"=>"https://accounts.groups2.com",
                         "secret"=>md5($user->instances->first()->groups_name.":burasi mustur yolu yokustur"),
                         "regen"=>1,
-                        "git"=> "http://".$user->instances->first()->groups_name.":".substr(md5(password_hash($by->id, PASSWORD_BCRYPT, ["salt"=>"nuno gomes is a great soccer player"])), 3, 6) . (string) $by->id."@165.22.133.69/".$by->instances->first()->groups_name."/frontend",
+                        "git"=> "http://".$user->instances->first()->groups_name.":".substr(md5(password_hash($user->id, PASSWORD_BCRYPT, ["salt"=>"nuno gomes is a great soccer player"])), 3, 6) . (string) $by->id."@165.22.133.69/".$by->instances->first()->groups_name."/frontend",
                         "description"=>$user->instances->first()->description,
                         "module_forum"=>0,
                         "module_groups"=>0
