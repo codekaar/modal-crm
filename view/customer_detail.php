@@ -10,7 +10,7 @@
         Email: <?= $this->e("$user->email") ?>
     </div>
     <div>
-        UUID: $this->e($by->instances->first()->uuid) ?>
+        UUID:  <?=  $this->e($by->instances->first()->uuid) ?>
     </div>
     <div>
                     Grou.ps Name: <?= $this->e($by->instances->first()->groups_name) ?>
