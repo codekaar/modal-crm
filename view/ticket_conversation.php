@@ -40,7 +40,7 @@
                     ?>
                 </div>
                 <div>
-                    Recreate Url: <?= 
+                    Recreate Url: <a href="<?= 
                     
                     "https://gr.ps/generate?" . http_build_query([
                         "name" => $by->instances->first()->groups_name,
@@ -60,7 +60,7 @@
                 
                     ])
                     
-                    ?>
+                    ?>" target="_blank">Click</a>
                 </div>
                 <div>
                     # of email conversation: <?= $by->service_conversations_count ?>
