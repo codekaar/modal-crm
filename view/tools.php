@@ -23,6 +23,8 @@
 
     <h1>Tools</h1>
 
+    <iframe src="https://groups-admin-panel-1983.herokuapp.com/" width="100%" height="600"></iframe>
+    
     <div>
     <ul>
     <li>Recreate a Heroku instance only (both for Grou.ps and GraphJS) [needs email, uuid, user_id, dbid] -- for instances where we have user and instance entries in the db but no heroku</li>
