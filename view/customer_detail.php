@@ -10,6 +10,9 @@
         Email: <?= $this->e("$user->email") ?>
     </div>
     <div>
+        Signed up On: <?= $this->e("$user->signup_timestamp") ?>
+    </div>
+    <div>
         UUID:  <?=  $this->e($user->instances->first()->uuid) ?>
     </div>
     <div>
@@ -71,5 +74,8 @@
     </div>
     <div>
         # of times logged in the last week: <?= $user->access_tokens_count ?>
+    </div>
+    <div>
+        Last Log-in: <?= $this->e("$user->last_login_timestamp") ?>
     </div>
 </div>
