@@ -197,6 +197,9 @@ class ServiceTicketController
                 case ServiceTicket::TYPE_SUPPORT:
                     $text = 'Support';
                     break;
+                case ServiceTicket::TYPE_RETENTION:
+                    $text = "Retention";
+                    break;
             }
             return $text;
         };
