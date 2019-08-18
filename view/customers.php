@@ -170,7 +170,7 @@
         <a href="${baseUrl}/customers/${user.id}">${escapeHtml((user.email || ''))}</a>
     </td>
     <td><a href="${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}" target="_blank">${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}</a></td>
-    <td>${timeSince(user.signup_timestamp)}</td>
+    <td>${timeSince((new Date(user.signup_timestamp)).getTime())}</td>
     <td>${user.service_conversations_count}</td>
     <td>${user.analytics_count}</td>
     <td>${user.access_tokens_count}</td>
