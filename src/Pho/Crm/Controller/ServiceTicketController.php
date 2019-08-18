@@ -55,7 +55,7 @@ class ServiceTicketController
     {
         $user = $this->auth->getUser();
 
-        $tickets = ServiceTicket::query()->where("status", 1);
+        $tickets = ServiceTicket::query()->where("status", "<>", Serviceticket::STATUS_CLOSED);
 
 
         error_log("Crm Role is: ".$user->crm_role);
