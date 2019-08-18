@@ -14,8 +14,8 @@
             <tr>
                 <th>Name</th>
                 <th>Website</th>
-                <th class="sort-header" data-sort="email_count">
-                    SignUp Date
+                <th>
+                    Sign Up Date
                 </th>
                 <th class="sort-header" data-sort="email_count">
                     <div class="d-flex align-items-center">
@@ -34,6 +34,9 @@
                         <span class="flex-fill"># of times logged in the last week</span>
                         <span class="sort-icon fa fa-sort"></span>
                     </div>
+                </th>
+                <th>
+                    Last Login
                 </th>
             </tr>
         </thead>
@@ -174,6 +177,7 @@
     <td>${user.service_conversations_count}</td>
     <td>${user.analytics_count}</td>
     <td>${user.access_tokens_count}</td>
+    <td>${timeSince((new Date(user.last_login_timestamp)).getTime())}</td>
 </tr>
 `);
                 $tr.find('.btn-email').on('click', function (ev) {
