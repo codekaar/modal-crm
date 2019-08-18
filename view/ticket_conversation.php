@@ -117,16 +117,17 @@
                     <div class="border mb-5">
                         <div class="border-bottom p-2">
                             <span class="fas fa-user"></span>
-                            <?= $this->e("{$conversation->user->email}") ?>
                             <!--
-                            <?= $this->e("{$conversation->user->first_name} {$conversation->user->last_name}") ?>
+                            <?= $this->e("{$conversation->user->email}") ?>
                             -->
+                            <?= $this->e("{$conversation->user->first_name} {$conversation->user->last_name}") ?>
+                            
                             <span class="float-right">
                         <span class="fas fa-calendar"></span>
                                 <?= $conversation->created_at ?>
                     </span>
                         </div>
-                        <div class="p-2"><?= $this->e($conversation->text) ?></div>
+                        <div class="p-2"><?= nl2br($this->e($conversation->text)) ?></div>
                     </div>
                 <?php endforeach ?>
             </div>
