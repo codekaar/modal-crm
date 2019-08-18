@@ -10,7 +10,7 @@
                 <th>Title</th>
                 <th>Type</th>
                 <th>By</th>
-                <th>Assignee</th>
+                <!--<th>Assignee</th>-->
                 <th>Open date</th>
                 <th>Close date</th>
                 <th>Status</th>
@@ -23,8 +23,8 @@
                     <td><a href="<?= url('service-tickets/' . $ticket->uuid) ?>"><?= $ticket->uuid ?></a></td>
                     <td><?= $this->e($ticket->title) ?></td>
                     <td><?= $ticketTypeToText($ticket->type) ?></td>
-                    <td><?= $this->e("{$ticket->byUser->email}") ?></td>
-                    <td><?= $ticket->assigneeUser ? $this->e("{$ticket->assigneeUser->first_name} {$ticket->assigneeUser->last_name}") : '' ?></td>
+                    <td><a href="mailto:<?= $this->e("{$ticket->byUser->email}") ?>"># <?= $this->e("{$ticket->assigneeUser->first_name} {$ticket->assigneeUser->last_name}") ?></a></td>
+                    <!--<td><?= $ticket->assigneeUser ? $this->e("{$ticket->assigneeUser->first_name} {$ticket->assigneeUser->last_name}") : '' ?></td>-->
                     <td><?= $ticket->open_date ?></td>
                     <td><?= $ticket->close_date ?></td>
                     <td><?= $ticketStatusToText($ticket->status) ?></td>
