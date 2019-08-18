@@ -72,7 +72,7 @@
         </div>
     </div>
 </div>
-
+<script src="/js/timeago.js"></script>
 <?php $this->start('scripts') ?>
 
 <script>
@@ -219,5 +219,6 @@
 })(jQuery, window);
 
 </script>
+
 
 <?php $this->end('scripts') ?>
