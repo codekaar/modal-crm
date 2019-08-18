@@ -19,19 +19,19 @@
                 </th>
                 <th class="sort-header" data-sort="email_count">
                     <div class="d-flex align-items-center">
-                        <span class="flex-fill"># of email conversation</span>
+                        <span class="flex-fill">Convo #</span>
                         <span class="sort-icon fa fa-sort"></span>
                     </div>
                 </th>
                 <th class="sort-header" data-sort="analytics_count">
                     <div class="d-flex align-items-center">
-                        <span class="flex-fill">Site Health Score</span>
+                        <span class="flex-fill">Health</span>
                         <span class="sort-icon fa fa-sort"></span>
                     </div>
                 </th>
                 <th class="sort-header" data-sort="login_count">
                     <div class="d-flex align-items-center">
-                        <span class="flex-fill"># of times logged in the last week</span>
+                        <span class="flex-fill">Login #</span>
                         <span class="sort-icon fa fa-sort"></span>
                     </div>
                 </th>
@@ -223,6 +223,8 @@
 })(jQuery, window);
 
 </script>
+
+<p>Please note, Login # is last week only</p>
 
 
 <?php $this->end('scripts') ?>
