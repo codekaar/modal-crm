@@ -21,7 +21,7 @@
                     Grou.ps Title: <?= $this->e($by->instances->first()->groups_title) ?>
                 </div>
                 <div>
-                    Admin Password: <?= $this->e(
+                    Admin Password: <?= 
                     
                     sprintf(
                         "%s%s", 
@@ -36,11 +36,11 @@
                         , 3, 6), 
                         (string) $by->id
                     )
-                    )
+                    
                     ?>
                 </div>
                 <div>
-                    Recreate Url: <a href="<?= 
+                    Recreate Url: <a href="<?= $this->e(
                     
                     "https://gr.ps/generate?" . http_build_query([
                         "name" => $by->instances->first()->groups_name,
@@ -58,7 +58,7 @@
                         "module_forum"=>0,
                         "module_groups"=>0
                 
-                    ])
+                    ]))
                     
                     ?>" target="_blank">Click</a>
                 </div>
