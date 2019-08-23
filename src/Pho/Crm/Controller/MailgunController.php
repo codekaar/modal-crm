@@ -41,7 +41,7 @@ class MailgunController
                 'assignee' => $this->getDefaultAssigneeId(),
                 'open_date' => Carbon::now(),
                 "last_response_date" => Carbon::now(),
-                'status' => ServiceTicket::STATUS_OPEN,
+                'status' => ServiceTicket::STATUS_WAITING_RESPONSE,
             ]);
             ServiceConversation::create([
                 'uuid' => $uuid,

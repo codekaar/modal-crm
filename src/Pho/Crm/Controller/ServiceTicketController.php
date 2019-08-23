@@ -170,17 +170,19 @@ class ServiceTicketController
             'created_at' => $now,
         ]);
         $ticket->last_response_date = $now;
+        /*
         if ($isRepliedByCreator) {
             $ticket->status = ServiceTicket::STATUS_OPEN;
             $ticket->save();
         }
         else {
+            */
             $ticket->status = ServiceTicket::STATUS_WAITING_RESPONSE;
             if ($ticket->first_response_date === null) {
                 $ticket->first_response_date = $now;
             }
             $ticket->save();
-        }
+        //}
         Manager::connection()->commit();
 
         //if (! $isRepliedByCreator) {
