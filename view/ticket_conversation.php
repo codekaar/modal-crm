@@ -21,7 +21,7 @@
                     Grou.ps Title: <?= $this->e($by->instances->first()->groups_title) ?>
                 </div>
                 <div>
-                    Admin Password: <?= 
+                    Admin Password: <?= $this->e(
                     
                     sprintf(
                         "%s%s", 
@@ -36,7 +36,7 @@
                         , 3, 6), 
                         (string) $by->id
                     )
-                    
+                    )
                     ?>
                 </div>
                 <div>
