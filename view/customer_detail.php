@@ -44,7 +44,7 @@
                     ?>
                 </div>
                 <div>
-                    Recreate Url: <?= 
+                    Recreate Url: <a href="<?= $this->e(
                     
                     "https://gr.ps/generate?" . http_build_query([
                         "name" => $user->instances->first()->groups_name,
@@ -62,9 +62,9 @@
                         "module_forum"=>0,
                         "module_groups"=>0
                 
-                    ])
+                    ]))
                     
-                    ?>
+                    ?>">Click</a>
                 </div>
     <div>
         # of email conversation: <?= $user->service_conversations_count ?>
