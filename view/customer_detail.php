@@ -1,7 +1,40 @@
 <?php $this->layout('layout/main.php', [ 'title' => 'Lead Detail' ]) ?>
 
 <div class="container">
+<div id="email-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Send Email</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" id="to-email" />
+                    <div class="form-group">
+                        <label class="col-form-label">Title</label>
+                        <input type="text" class="form-control" id="email-subject">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Content</label>
+                        <textarea class="form-control"  id="email-content"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="email-button">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <h1>Customer Detail</h1>
+
+    <div><button href="#" class="btn-email btn btn-link float-right" data-email="${user.email}">Email</button></div>
 
     <div>
         Name: <?= $this->e("$user->first_name $user->last_name") ?>
@@ -79,3 +112,14 @@
         Last Log-in: <?= $this->e("$user->last_login_timestamp") ?>
     </div>
 </div>
+
+
+<script>
+
+$tr.find('.btn-email').on('click', function (ev) {
+                    ev.preventDefault();
+                    $('#email-modal').modal();
+                    $('#to-email').val($( this ).attr('data-email'))
+                });
+
+                </script>
