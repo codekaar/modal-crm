@@ -116,7 +116,7 @@
 
 <script>
 
-$tr.find('.btn-email').on('click', function (ev) {
+$('.btn-email').on('click', function (ev) {
                     ev.preventDefault();
                     $('#email-modal').modal();
                     $('#to-email').val($( this ).attr('data-email'))
