@@ -166,9 +166,10 @@ class ServiceTicketController
             'uuid' => $uuid,
             'user_id' => $this->auth->getUser()->id,
             'text' => $text,
-            'source' => ServiceConversation::SOURCE_WEBSITE,
+            'source' => ServiceConversation::SOURCE_CRM,
             'created_at' => $now,
         ]);
+        $ticket->last_response_date = $now;
         if ($isRepliedByCreator) {
             $ticket->status = ServiceTicket::STATUS_OPEN;
             $ticket->save();
