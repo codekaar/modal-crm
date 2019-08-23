@@ -40,6 +40,7 @@ class MailgunController
                 'by' => $user->id,
                 'assignee' => $this->getDefaultAssigneeId(),
                 'open_date' => Carbon::now(),
+                "last_response_date" => Carbon::now(),
                 'status' => ServiceTicket::STATUS_OPEN,
             ]);
             ServiceConversation::create([
