@@ -65,7 +65,7 @@ class ServiceTicketController
 
         $tickets = $tickets->limit(50)
                 ->offset(0)
-                ->orderBy('open_date', 'desc')
+                ->orderBy('last_response_date', 'desc')
                 ->get();
 
         error_log("ticket count is: ".count($tickets));
