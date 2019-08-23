@@ -170,7 +170,7 @@
 <tr>
     <td>
         <button href="#" class="btn-email btn btn-link float-right" data-email="${user.email}"><span class="fas fa-envelope"></span></button>
-        <a href="${baseUrl}/customers/${user.id}">${escapeHtml(((user.first_name || user.email || ''))}</a>
+        <a href="${baseUrl}/customers/${user.id}">${escapeHtml(((user.first_name+" "+user.last_name) || user.email || ''))}</a>
     </td>
     <td><a href="${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}" target="_blank">${escapeHtml((user.instances[0] && user.instances[0].site) ? user.instances[0].site.url : '')}${escapeHtml((user.instances[0] && user.instances[0].groups_name) ? user.instances[0].groups_name : '')}</a></td>
     <td>${timeSince((new Date(user.signup_timestamp)).getTime())}</td>
