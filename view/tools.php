@@ -23,6 +23,9 @@
 
     <h1>Tools</h1>
 
+    <iframe src="https://plausible.io/groups2.com" width="100%" height="600"></iframe>
+    <iframe src="https://plausible.io/graphjs.com" width="100%" height="600"></iframe>
+
     <iframe src="https://groups-admin-panel-1983.herokuapp.com/" width="100%" height="600"></iframe>
     
     <div>
